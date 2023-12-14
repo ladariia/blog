@@ -1,10 +1,13 @@
 import React, { useState, useMemo } from 'react';
 import './styles/App.css'
+import Header from './components/Header/Header';
 import PostList from './components/PostList';
 import PostForm from './components/PostForm';
 import PostFilter from './components/PostFilter';
 import MyModal from './components/MyModal/MyModal';
 import MyButton from './components/UI/button/MyButton';
+import {ReactComponent as IconSvgCatalog} from './icons/catalog.svg';
+import {ReactComponent as IconSvgDataMart} from './icons/data_mart.svg';
 
 function App() {
   const [posts, setPosts] = useState([
@@ -14,8 +17,19 @@ function App() {
     {id: 4, title: 'aa', body: 'nn'}
   ])
 
+  const items = [
+    {value: "Каталог", href: "/", icon: <IconSvgCatalog/>},
+    {value: "Витрина данных", href: "/", icon: <IconSvgDataMart/>},
+    {value: "Обучение", href: "/", icon: <IconSvgDataMart/>},
+    {value: "Центры компетенции", href: "/", icon: <IconSvgDataMart/>},
+    {value: "Отчёты", href: "/", icon: <IconSvgDataMart/>},
+    {value: "Коспас-Сарсат", href: "/", icon: <IconSvgDataMart/>},
+    {value: "КосмоАИС", href: "/", icon: <IconSvgDataMart/>},
+    {value: "Новости", href: "/", icon: <IconSvgDataMart/>}
+]
+
   const [filter, setFilter] = useState({sort: '', query: ''})
-  const [modal, setModal] = useState(false);
+  const [modal, setModal] = useState(false)
 
   const sortedPosts = useMemo(() => {
     if (filter.sort){
@@ -39,6 +53,7 @@ function App() {
 
   return (
     <div className="App">
+      <Header items={items}/>
       <MyButton onClick={() => setModal(true)}>
         Add new
       </MyButton>

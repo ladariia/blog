@@ -1,0 +1,38 @@
+.header {
+  background: #0b1c39;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header__container {
+  display: flex;
+  width: 100%;
+  padding: 20px 40px;
+}
+
+.header__container a {
+  color: #fff;
+}
+
+.header__nav ul {
+  display: flex;
+  gap: 25px;
+}
+
+.header__nav ul li a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  font-size: 15px;
+}
+
+.header__nav ul li span {
+  display: flex;
+  align-items: center;
+}
+
+.header__nav ul li span svg {
+  fill: red !important;
+}
